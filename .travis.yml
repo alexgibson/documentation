@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - stable
+after_success:
+  - npm run build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local-dir: _book  
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: master
+cache:
+  directories:
+    - node_modules
